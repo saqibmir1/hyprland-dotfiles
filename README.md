@@ -1,20 +1,25 @@
 # hyprland-dotfiles
 dotfiles for hyprlan (arch linux)
 
-![ScreenShot](screenshot.png)
-
+![ScreenShot1](https://saqibmir1.github.io/blog/switching-to-hyprland/hyprland-rice.png)
+![ScreenShot2](https://saqibmir1.github.io/blog/switching-to-hyprland/hyprland-rice-2.png)
 ## Packages used 
 
 List of packages i use:
 - **operating system** --- arch linux
-- **AUR helper** --- arch linux
-- **Window Manager** --- arch linux
-- **Status Bar** --- arch linux
-- **App Launcher** --- arch linux
-- **Screenshot** --- arch linux
-- **Shell** --- arch linux
-- **Terminal** --- arch linux
-- **Notification** --- arch linux
+- **AUR helper** --- yay 
+- **Window Manager** --- hyprland
+- **Status Bar** --- waybar 
+- **App Launcher** --- rofi 
+- **Screenshot** --- grim, slurp 
+- **Shell** --- zsh 
+- **Terminal** --- foot 
+- **Theme** --- kripton 
+- **Font** --- jetbrains mono 
+- **clipboard** --- cliphist 
+- **Browser** --- firefox 
+- **Notification** --- dunst 
+- **Media Player** --- mpv
 
 ## Installation
 
@@ -44,3 +49,5 @@ bash install-hyprland.sh
 ## Wallpapers
 Rename your walpaper as *background* and put in *$8HOME/.config*.
 You can also use <kbd>setbg</kbd> script to choose wallpapers from rofi and it will be set as new walpaper automatically.
+
+
