@@ -108,6 +108,8 @@ if [[ $CFG =~ ^[Yy]$ ]]; then
 
     mkdir ~/.local/bin 
     cp -r .lococal/bin/* ~/.local/bin 2>&1 | tee -a $LOG
+   
+    mkdir ~/.cache/zsh
 #    cp .zshrc .zprofile .gitconfig ~
 
 
