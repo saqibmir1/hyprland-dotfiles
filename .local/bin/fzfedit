@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Define the directories to search for files
+dirs=("$HOME/Code" "$HOME/Git" "$HOME/Projects" "$HOME/.config")
+
+# Use fzf to select a file
+selected_file=$(find "${dirs[@]}" -type f -print0 | sort -z | fzf --read0)
+
+# Check if a file was selected
+if [[ -n "$selected_file" ]]; then
+  # Use the EDITOR environment variable to open the selected file
+  "$EDITOR" "$selected_file"
+fi
+

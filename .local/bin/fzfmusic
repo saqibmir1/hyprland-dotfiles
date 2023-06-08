@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Define the directory to search for music files
+MUSIC_DIR="/mnt/personal/Music"
+
+# Use fzf to select a music file
+selected_file=$(find "$MUSIC_DIR" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" \) | fzf)
+
+# Check if a file was selected
+if [[ -n "$selected_file" ]]; then
+  # Use mpv to play the selected file
+  mpv "$selected_file"
+fi
+

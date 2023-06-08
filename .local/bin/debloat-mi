@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo "Welome to debloat-mi script"
+echo "This script will remove all xiaomi bloat from mi devices"\
+sleep 2 
+echo "press ENTER to continue"
+read
+adb wait-for-device
+echo "Device found"
+adb devices
+echo "Debloating device"
+sleep 2
+adb shell pm uninstall --user 0 com.mi.globalbrowser # Mi Browser
+adb shell pm uninstall --user 0 com.miui.notes # Mi Browser
+adb shell pm uninstall --user 0 com.xiaomi.mipicks # GetApps
+adb shell pm uninstall --user 0 com.miui.miwallpaper # Mi Wallpaper
+adb shell pm uninstall --user 0 com.xiaomi.midrop # Mi Drop
+adb shell pm uninstall --user 0 com.miui.compass # Compass
+adb shell pm uninstall --user 0 com.miui.securitycenter # Security
+adb shell pm uninstall --user 0 com.xiaomi.payment # Mi Coins
+adb shell pm uninstall --user 0 com.miui.fm # FM Radio
+adb shell pm uninstall --user 0 cn.wps.xiaomi.abroad.lite # Mi WPS Lite
+adb shell pm uninstall --user 0 com.miui.screenrecorder # Screenrecorder
+adb shell pm uninstall --user 0 com.miui.misound # Mi Sound
+adb shell pm uninstall --user 0 com.xiaomi.scanner # Scanner
+adb shell pm uninstall --user 0 com.miui.calculator # Calculator
+adb shell pm uninstall --user 0 com.duokan.phone.remotecontroller # Mi Remote controller
+adb shell pm uninstall --user 0 com.miui.android.fashiongallery # Carousel wallpapers
+adb shell pm uninstall --user 0 com.miui.videoplayer # Mi Videos
+adb shell pm uninstall --user 0 com.miui.player # Mi Music
+adb kill-server
+echo "Debloat successful"

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+query=$(printf '%s' "$*" | tr ' ' '+' )
+lastpartoflink=$(curl -s https://tinyzonetv.to/search/$query/ | grep "/movie/watch.*" | cat | head -n 2 | tail -n 1 | sed -e 's/^[ \t]*//' | sed -r 's/.{6}//' | sed 's/"//')
+firstpartoflink="https://tinyzonetv.to"
+finallink=$firstpartoflink$lastpartoflink
+echo $finallink
+
+# work in progress

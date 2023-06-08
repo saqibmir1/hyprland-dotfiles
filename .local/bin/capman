@@ -1,0 +1,73 @@
+#!/bin/bash
+# Author: Saqib Mir
+# package manager script for arch linux
+# Required Dependencies: fzf expac
+# Optional Dependencies: yay
+
+# dependency check
+if ! command -v fzf &> /dev/null; then
+	read -p "fzf is not installed. Do you want to isntall it? [y/n]: " choice
+	case "$choice" in
+		y|Y ) sudo pacman -S fzf --noconfirm;;
+		n|N ) exit;;
+		*) echo "Invalid Choice, Exiting..."; exit;;
+	esac
+fi
+
+if ! command -v expac &> /dev/null; then
+    read -p "expac is not installed. Do you want to install it? [y/n]: " choice
+    case "$choice" in
+        y|Y ) sudo pacman -S expac --noconfirm;;
+        n|N ) exit;;
+        * ) echo "Invalid choice. Exiting..."; exit;;
+    esac
+fi
+
+
+action=$(echo -e "Install Program\nRemove Program\nRemove Orphans\nUpdate System (pacman only)\nUpdate System (pacman + yay)\nRemove Recently Installed Packages\nShow Package Info" | fzf -i --height 10)
+
+case $action in
+  "Install Program")
+    package=$(pacman -Si |
+      awk '/^Name/{name=$3} /^Download Size/{ds=$4$5} /^Repo/{repo=$3} /^Description/{sub(/^.{18}/,"", $0); print name, "["ds"]", "("repo") =>", $0} ' |
+      sort -d | fzf --height 20 | awk '{print $1}')
+
+    sudo pacman -S --noconfirm $package && echo "Package installed"
+    ;;
+
+  "Remove Program")
+    package=$(pacman -Qi |
+      awk '/^Name/{name=$3} /^Installed Size/{ds=$4$5} /^Repo/{repo=$3} /^Description/{sub(/^.{18}/,"", $0); print name, "["ds"] =>", $0} ' |
+      sort -d | fzf --height 20 | awk '{print $1}')
+    sudo pacman -Rns --noconfirm $package && echo "Package removed"
+    ;;
+
+  "Remove Orphans")
+    sudo pacman -Rs $(pacman -Qqtd) 2>/dev/null && echo "Removed orphans" || echo "No Orphan packages found"
+    ;;
+
+  "Update System (pacman only)")
+    sudo pacman -Syu --noconfirm && echo "Updated system" || echo "Something went wrong"
+    ;;
+
+  "Update System (pacman + yay)")
+    yay && echo "Updated system" || echo "Something went wrong"
+    ;;
+
+  "Remove Recently Installed Packages")
+    package=$(expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 20 | fzf --height 20 | awk '{print $3}')
+    sudo pacman -Rns --noconfirm $package && echo "Package Removed"
+    ;;
+
+  "Show Package Info")
+     package=$(pacman -Qi |
+      awk '/^Name/{name=$3} /^Installed Size/{ds=$4$5} /^Repo/{repo=$3} /^Description/{sub(/^.{18}/,"", $0); print name, "["ds"] =>", $0} ' |
+      sort -d | fzf --height 20 | awk '{print $1}')
+      pacman -Qi $package
+      ;;
+
+  *)
+   echo "No option selected" 
+    ;;
+
+esac

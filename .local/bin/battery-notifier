@@ -1,0 +1,25 @@
+#!/bin/bash
+while true; do
+    battery_percentage=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "percentage" | awk '{print $2}' | tr -d '%')
+    battery_status=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state" | awk '{print $2}')
+
+    if ["$battery_status"== "discharging"];then
+        if
+            ["$battery_percentage" -le 20];then
+            notify-send "Battery Low" "Battery percentage is $battery_percentage%"
+        fi
+    fi
+
+    if [ "$battery_percentage" -ge 99 ]; then
+            notify-send "Battery Fully Charged" "Battery percentage is $battery_percentage%"
+    fi
+
+    sleep 180 
+done
+
+    
+
+
+        
+
+

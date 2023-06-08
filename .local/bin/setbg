@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#set dir of wallpaper folder
+dir="$HOME/Pictures/wall"
+
+# create array of images in dir
+images=( $(ls $dir) )
+
+#use rofi
+selected=$(printf '%s\n' "${images[@]}" | rofi -dmenu -p "Select wallpaper image")
+
+# set selected img as  wallpager
+if [[ -n $selected ]]; then
+  swaybg -i "$dir/$selected" --mode fill &
+  notify-send "Wallpaper Changed" "New wallpaper set as $selected "
+fi
+

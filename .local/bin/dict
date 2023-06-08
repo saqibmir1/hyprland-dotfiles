@@ -1,0 +1,69 @@
+#!/bin/bash
+#my personal dictionary
+#file check
+dictionary_file="$HOME/.local/share/dict/words.txt"
+if [ ! -f "$dictionary_file" ]; then
+  mkdir $HOME/.local/share/dict
+  touch "$dictionary_file"
+fi
+
+#addword
+function add_word {
+  read -p "Enter word: " word
+  read -p "Enter Meaning: " meaning
+  echo "$word -> $meaning" >> "$dictionary_file"
+  echo "Word added successfully"
+}
+
+#search word
+function search_word {
+  read -p "Enter the word you want to search for: " word
+   if grep -qi "^$word ->" "$dictionary_file"; then
+      grep -i "^$word ->" "$dictionary_file"
+    else
+      echo "Word not found."
+   fi
+}
+
+#disp words
+function display_words {
+  cat "$dictionary_file"
+}
+
+#help
+function display_help {
+  echo "Usage: dict [option]"
+  echo "Options:"
+  echo "  -a: Add a word to the dictionary."
+  echo "  -s: Search for a word in the dictionary."
+  echo "  -d: Display all words in the dictionary."
+  echo "  -h: Display this help message."
+}
+
+#agruments
+while getopts ":ashd" opt; do
+  case $opt in
+    a)
+      add_word
+      ;;
+
+    s)
+      search_word
+      ;;
+
+    d)
+      display_words
+      ;;
+
+    h)
+      display_help
+      ;;
+
+    *)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+
+  esac
+
+done
+

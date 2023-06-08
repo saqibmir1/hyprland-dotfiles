@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Check if directory name is provided
+if [ -z "$1" ]
+then
+  echo "Please provide directory name as an argument"
+  exit 1
+fi
+
+# Check if directory exists
+if [ ! -d "$1" ]
+then
+  echo "Directory $1 does not exist"
+  exit 1
+fi
+
+# Change to the directory
+cd "$1"
+
+# Rename files
+i=1
+for file in *
+do
+  if [ -f "$file" ]
+  then
+    extension="${file##*.}"
+    mv "$file" "$i.$extension"
+    let i++
+  fi
+done
+
+echo "Files renamed successfully"
+
