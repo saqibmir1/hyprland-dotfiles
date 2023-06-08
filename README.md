@@ -1,5 +1,7 @@
 # hyprland-dotfiles
-dotfiles for hyprlan (arch linux)
+dotfiles for hyprland (arch linux)
+
+## Screenshots
 
 ![ScreenShot1](https://saqibmir1.github.io/blog/switching-to-hyprland/hyprland-rice.png)
 ![ScreenShot2](https://saqibmir1.github.io/blog/switching-to-hyprland/hyprland-rice-2.png)
@@ -47,7 +49,7 @@ bash install-hyprland.sh
 | <kbd>MOD SHIFT + Q</kbd>             | Quit Hyprland             |
 
 ## Wallpapers
-Rename your walpaper as *background* and put in *$8HOME/.config*.
+Rename your walpaper as *background* and put in *$HOME/.config*.
 You can also use <kbd>setbg</kbd> script to choose wallpapers from rofi and it will be set as new walpaper automatically.
 
 
