@@ -10,7 +10,7 @@ LOG="install.log"
 # Set the script to exit on error
 set -e
 
-printf "$(tput setaf 2) Welcome to the Arch Linux YAY Hyprland installer!\n $(tput sgr0)"
+printf "$(tput setaf 2) Welcome to Hyprland installer!\n $(tput sgr0)"
 
 sleep 2
 
@@ -24,6 +24,12 @@ $YELLOW  Some commands requires you to enter your password inorder to execute
 If you are worried about entering your password, you can cancel the script now with CTRL Q or CTRL C and review contents of this script. \n"
 
 sleep 3
+
+# some pacman tweaks 
+printf " Doing some pacman tweaks before actual installation of packages...\n"
+sudo sed -i "s/-j2/-j$(nproc)/;/^#MAKEFLAGS/s/^#//" /etc/makepkg.conf
+sudo grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+sudo sed -Ei "s/^#(ParallelDownloads).*/\1 = 5/;/^#Color$/s/#//" /etc/pacman.conf
 
 # Check if yay is installed
 ISyay=/sbin/yay
@@ -106,14 +112,16 @@ if [[ $CFG =~ ^[Yy]$ ]]; then
     cp -r .config/hypr ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/rofi ~/.config/ 2>&1 | tee -a $LOG
 
-    mkdir ~/.local/bin 
+    mkdir ~/.local/bin  ~/.cache/zsh 2>&1 | tee -a $LOG
+    mkdir ~/Git ~/gitPackages ~/Code ~/Projects 2>&1 | tee -a $LOG
     cp -r .lococal/bin/* ~/.local/bin 2>&1 | tee -a $LOG
-   
-    mkdir ~/.cache/zsh
-#    cp .zshrc .zprofile .gitconfig ~
-
+#    cp .zshrc .zprofile .gitconfig ~ 2>&1 | tee -a $LOG
 
 fi
+
+# change shell
+printf " Changing default shell to zsh...\n"
+chsh -s $(which zsh) 2>&1 | tee -a $LOG
 
 # startup services
 printf " Activating Bluetooth Services...\n"
