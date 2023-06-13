@@ -98,19 +98,15 @@ fi
 read -n1 -rep "${CAT} Would you like to copy config files? (y,n)" CFG
 if [[ $CFG =~ ^[Yy]$ ]]; then
     printf " Copying config files...\n"
-    cp -r .config/cava ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/imv ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/foot ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/shell ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/swaylock ~/.config/ 2>&1 | tee -a $LOG
     cp .config/background ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/dunst ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/htop ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/mpv ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/ranger ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/waybar ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/hypr ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/rofi ~/.config/ 2>&1 | tee -a $LOG
+    cp -r .config/zathura ~/.config/ 2>&1 | tee -a $LOG
 
     mkdir ~/.local/bin  ~/.cache/zsh 2>&1 | tee -a $LOG
     mkdir ~/Git ~/gitPackages ~/Code ~/Projects 2>&1 | tee -a $LOG
