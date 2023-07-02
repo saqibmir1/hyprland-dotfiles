@@ -19,9 +19,9 @@ chosen_id=$(echo "${chosen_network:3}" | xargs)
 # Parses the list of preconfigured connections to see if it already contains the chosen SSID. This speeds up the connection process
 if [ "$chosen_network" = "" ]; then
 	exit
-elif [ "$chosen_network" = "直  Enable Wi-Fi" ]; then
+elif [ "$chosen_network" = "  Enable Wi-Fi" ]; then
 	nmcli radio wifi on
-elif [ "$chosen_network" = "睊  Disable Wi-Fi" ]; then
+elif [ "$chosen_network" = "󰖪  Disable Wi-Fi" ]; then
 	nmcli radio wifi off
 else
 	# Message to show when connection is activated successfully

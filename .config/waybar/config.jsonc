@@ -71,7 +71,7 @@
     "network": {
 	    "format-wifi": " {signalStrength}%",
 		"format-ethernet": " wired",
-		"on-click": "foot -e nmtui",
+		"on-click": "wifimenu",
 		"format-disconnected": "Disconnected  "
 	},
 
