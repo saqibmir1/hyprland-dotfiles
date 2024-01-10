@@ -3,8 +3,8 @@ dotfiles for hyprland (arch linux)
 
 ## Screenshots
 
-![ScreenShot1](https://saqibmir1.github.io/blog/switching-to-hyprland/hyprland-rice.png)
-![ScreenShot2](https://saqibmir1.github.io/blog/switching-to-hyprland/hyprland-rice-2.png)
+![ScreenShot1](https://saqibmir.me/blog/switching-to-hyprland/hyprland-rice.png)
+![ScreenShot2](https://saqibmir.me/blog/switching-to-hyprland/hyprland-rice-2.png)
 ## Packages used 
 
 List of packages i use:
