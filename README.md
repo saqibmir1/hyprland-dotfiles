@@ -16,7 +16,7 @@ List of packages i use:
 - **Screenshot** --- grim, slurp 
 - **Shell** --- zsh 
 - **Terminal** --- foot 
-- **Theme** --- kripton 
+- **Theme** --- arc-gtk-theme 
 - **Font** --- jetbrains mono 
 - **clipboard** --- cliphist 
 - **Browser** --- firefox 
@@ -45,7 +45,7 @@ bash install-hyprland.sh
 | <kbd>MOD + B</kbd>                   | Launch Browser            |
 | <kbd>MOD + M</kbd>                   | Launch cmus               |
 | <kbd>MOD + V</kbd>                   | Launch clipboard          |
-| <kbd>MOD + L</kbd>                   | Lock screen               |
+| <kbd>MOD SHIFT + L</kbd>                   | Lock screen               |
 | <kbd>MOD SHIFT + Q</kbd>             | Quit Hyprland             |
 
 ## Wallpapers
