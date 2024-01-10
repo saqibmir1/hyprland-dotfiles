@@ -77,7 +77,7 @@ if [[ $inst =~ ^[Yy]$ ]]; then
    hypr_pkgs="hyprland arc-gtk-theme waybar cliphist dunst foot rofi grim slurp imv pamixer pipewire pipewire-pulse pipewire-audio wireplumber polkit-kde-agent qt6-wayland qt5-wayland swaybg swaylock swayidle xdg-desktop-portal-hyprland xdg-user-dirs"    
    font_pkgs="ttf-font-awesome ttf-jetbrains-mono ttf-jetbrains-mono-nerd"
    app_pkgs="android-file-transfer android-tools bluez bluez-utils fzf git htop imv man-db mesa mesa-utils neofetch neovim ranger tlp zip unzip zsh zsh-syntax-highlighting"
-   app_pkgs2="firefox mpv thunar thunar-archive-plugin thunar-volman udiskie"
+   app_pkgs2="firefox mpv thunar thunar-archive-plugin thunar-volman gvfs" 
 
 
     if ! yay -S --noconfirm $yay_pkgs $hypr_pkgs $font_pkgs $app_pkgs $app_pkgs2 2>&1 | tee -a $LOG; then
