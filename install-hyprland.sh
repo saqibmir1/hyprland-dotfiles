@@ -73,11 +73,11 @@ if [[ $inst =~ ^[Nn]$ ]]; then
         fi
 
 if [[ $inst =~ ^[Yy]$ ]]; then
-   yay_pkgs="kripton-theme-git waybar-hyprland-git cava timeshift-bin timeshift-autosnap"
-   hypr_pkgs="hyprland cliphist dunst foot rofi grim slurp imv pamixer pipewire pipewire-pulse pipewire-audio wireplumber polkit-kde-agent qt6-wayland qt5-wayland swaybg swaylock swayidle xdg-desktop-portal-hyprland xdg-user-dirs"    
+   yay_pkgs="visual-studio-code-bin"
+   hypr_pkgs="hyprland arc-gtk-theme waybar cliphist dunst foot rofi grim slurp imv pamixer pipewire pipewire-pulse pipewire-audio wireplumber polkit-kde-agent qt6-wayland qt5-wayland swaybg swaylock swayidle xdg-desktop-portal-hyprland xdg-user-dirs"    
    font_pkgs="ttf-font-awesome ttf-jetbrains-mono ttf-jetbrains-mono-nerd"
-   app_pkgs="android-file-transfer android-tools bluez bluez-utils fzf git htop imv lf man-db mesa mesa-utils neofetch neovim ranger tlp zip unzip zsh zsh-syntax-highlighting"
-   app_pkgs2="code firefox mpv thunar thunar-archive-plugin thunar-volman udiskie"
+   app_pkgs="android-file-transfer android-tools bluez bluez-utils fzf git htop imv man-db mesa mesa-utils neofetch neovim ranger tlp zip unzip zsh zsh-syntax-highlighting"
+   app_pkgs2="firefox mpv thunar thunar-archive-plugin thunar-volman udiskie"
 
 
     if ! yay -S --noconfirm $yay_pkgs $hypr_pkgs $font_pkgs $app_pkgs $app_pkgs2 2>&1 | tee -a $LOG; then
@@ -111,7 +111,7 @@ if [[ $CFG =~ ^[Yy]$ ]]; then
     mkdir ~/.local/bin  ~/.cache/zsh 2>&1 | tee -a $LOG
     mkdir ~/Git ~/gitPackages ~/Code ~/Projects 2>&1 | tee -a $LOG
     cp -r .lococal/bin/* ~/.local/bin 2>&1 | tee -a $LOG
-#    cp .zshrc .zprofile .gitconfig ~ 2>&1 | tee -a $LOG
+    cp .zshrc .zprofile .gitconfig ~ 2>&1 | tee -a $LOG
 
 fi
 

@@ -15,3 +15,5 @@ if [[ -n $selected ]]; then
   notify-send "Wallpaper Changed" "New wallpaper set as $selected "
 fi
 
+#cp "$dir/$selected" ~/.config/
+cp ~/Pictures/wall/$selected ~/.config/background

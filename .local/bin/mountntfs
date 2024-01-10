@@ -1,0 +1,25 @@
+#!/bin/bash
+
+NTFS_PARTITION="/dev/nvme0n1p4"
+
+# Check if the partition is already mounted
+if findmnt --source "$NTFS_PARTITION" --target "/mnt/ntfs" &>/dev/null; then
+    dunstify "NTFS partition is already mounted at /mnt/ntfs"
+else
+    # Check if the mount point exists
+    MOUNT_POINT="/mnt/ntfs"
+    if [ ! -d "$MOUNT_POINT" ]; then
+        sudo mkdir "$MOUNT_POINT"
+    fi
+
+    # Mount the NTFS partition using ntfs-3g
+    sudo mount -t ntfs-3g "$NTFS_PARTITION" "$MOUNT_POINT"
+
+    # Check if the mount was successful
+    if [ $? -eq 0 ]; then
+        dunstify "NTFS partition mounted at $MOUNT_POINT"
+    else
+        dunstify "Failed to mount NTFS partition"
+    fi
+fi
+

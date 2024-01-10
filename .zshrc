@@ -7,8 +7,8 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
 # History in cache directory:
-HISTSIZE=10000000
-SAVEHIST=10000000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Load aliases  if existent.
@@ -50,3 +50,4 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # source zsh-syntax-highlighting (should be last)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+
