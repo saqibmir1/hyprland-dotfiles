@@ -25,12 +25,6 @@ If you are worried about entering your password, you can cancel the script now w
 
 sleep 3
 
-# some pacman tweaks 
-printf " Doing some pacman tweaks before actual installation of packages...\n"
-sudo sed -i "s/-j2/-j$(nproc)/;/^#MAKEFLAGS/s/^#//" /etc/makepkg.conf
-sudo grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
-sudo sed -Ei "s/^#(ParallelDownloads).*/\1 = 5/;/^#Color$/s/#//" /etc/pacman.conf
-
 # Check if yay is installed
 ISyay=/sbin/yay
 
@@ -113,10 +107,6 @@ if [[ $CFG =~ ^[Yy]$ ]]; then
     cp .zshrc .zprofile .gitconfig ~ 2>&1 | tee -a $LOG
 
 fi
-
-# change shell
-printf " Changing default shell to zsh...\n"
-chsh -s $(which zsh) 2>&1 | tee -a $LOG
 
 # startup services
 printf " Activating Bluetooth Services...\n"
