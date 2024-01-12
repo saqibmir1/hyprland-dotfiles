@@ -41,7 +41,7 @@ else
     read -n1 -rep "${CAT} Would you like to install yay (y,n)" INST
     if [[ $INST =~ ^[Yy]$ ]]; then
         git clone https://aur.archlinux.org/yay-bin.git
-        cd yay
+        cd yay-bin
         makepkg -frsi --noconfirm 2>&1 | tee -a $LOG
         cd ..
     else
@@ -102,15 +102,14 @@ if [[ $CFG =~ ^[Yy]$ ]]; then
     cp -r .config/shell ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/swaylock ~/.config/ 2>&1 | tee -a $LOG
     cp .config/background ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/dunst ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/waybar ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/hypr ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/rofi ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/zathura ~/.config/ 2>&1 | tee -a $LOG
 
     mkdir ~/.local/bin  ~/.cache/zsh 2>&1 | tee -a $LOG
-    mkdir ~/Git ~/gitPackages ~/Code ~/Projects 2>&1 | tee -a $LOG
-    cp -r .lococal/bin/* ~/.local/bin 2>&1 | tee -a $LOG
+    mkdir ~/Git ~/gitPackages ~/Code 2>&1 | tee -a $LOG
+
+    cp -r .local/bin/* ~/.local/bin 2>&1 | tee -a $LOG
     cp .zshrc .zprofile .gitconfig ~ 2>&1 | tee -a $LOG
 
 fi

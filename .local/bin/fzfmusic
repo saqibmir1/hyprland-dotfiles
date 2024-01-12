@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the directory to search for music files
-MUSIC_DIR="/mnt/personal/Music"
+MUSIC_DIR="/run/media/saqib/New Volume/Music"
 
 # Use fzf to select a music file
 selected_file=$(find "$MUSIC_DIR" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" \) | fzf)

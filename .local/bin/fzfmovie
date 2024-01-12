@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the directory to search for movie files
-MOVIES_DIR="/mnt/personal/Movies"
+MOVIES_DIR="/run/media/saqib/New Volume/Movies"
 
 # Use fzf to select a movie file
 selected_file=$(find "$MOVIES_DIR" -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | fzf)

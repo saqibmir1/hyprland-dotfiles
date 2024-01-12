@@ -1,36 +1,22 @@
 #!/bin/bash
 
-# Sound paths for battery and charger notifications
-SOUND_LOW="~/.local/share/batterynotify/battery.mp3"
-SOUND_FULL="~/.local/share/batterynotify/battery.mp3"
-
 notify() {
     if [[ -f "$2" ]]; then
         paplay "$2" &
     fi
     notify-send "$1"
 }
-while true; do
-    battery_percentage=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "percentage" | awk '{print $2}' | tr -d '%')
-    battery_status=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state" | awk '{print $2}')
 
-    if ["$battery_status"== "discharging"];then
-        if
-            ["$battery_percentage" -le 20];then
-            notify "Battery Low" ($battery_percentage%) "$SOUND_LOW" 
+while true; do
+    battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+    battery_status=$(cat /sys/class/power_supply/BAT0/status)
+
+    if [ "$battery_status" = "Discharging" ]; then
+        if [ "$battery_percentage" -le 20 ]; then
+            notify "Battery Low $battery_percentage %" 
         fi
     fi
 
-    if [ "$battery_percentage" -ge 99 ]; then
-        notify "Battery Fully Charged" ($battery_percentage%) "$SOUND_FULL"
-    fi
-
-    sleep 60 
+    sleep 60
 done
-
-    
-
-
-        
-
 
