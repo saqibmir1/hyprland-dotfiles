@@ -100,7 +100,7 @@ if [[ $CFG =~ ^[Yy]$ ]]; then
     cp -r .config/hypr ~/.config/ 2>&1 | tee -a $LOG
     cp -r .config/rofi ~/.config/ 2>&1 | tee -a $LOG
 
-    mkdir ~/.local/bin  ~/.cache/zsh 2>&1 | tee -a $LOG
+    mkdir -p ~/.local/bin  ~/.cache/zsh 2>&1 | tee -a $LOG
     mkdir ~/Git ~/gitPackages ~/Code 2>&1 | tee -a $LOG
 
     cp -r .local/bin/* ~/.local/bin 2>&1 | tee -a $LOG
