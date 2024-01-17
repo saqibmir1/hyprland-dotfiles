@@ -3,8 +3,19 @@
 # Define the directory to search for movie files
 MOVIES_DIR="/run/media/saqib/New Volume/Movies"
 
-# Use fzf to select a movie file
-selected_file=$(find "$MOVIES_DIR" -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | fzf)
+# Function to check if a command is available
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+# Check if rofi is installed, use it if available, otherwise use fzf
+if command_exists rofi; then
+  # Use rofi to select a movie file
+  selected_file=$(find "$MOVIES_DIR" -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | rofi -dmenu -i -p "Select a movie:")
+else
+  # Use fzf if rofi is not available
+  selected_file=$(find "$MOVIES_DIR" -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | fzf)
+fi
 
 # Check if a file was selected
 if [[ -n "$selected_file" ]]; then

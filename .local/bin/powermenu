@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-entries=" Lock\n󰍃 Logout\n Suspend\n Reboot\n Shutdown\n󰒲 Hibernate"
+entries=" Lock\n󰍃 Logout\n Suspend\n Reboot\n Shutdown\n󰒲 Hibernate\n󰟔 Reload\n󰧻 Kill"
 
-selected=$(echo -e $entries|rofi -dmenu --cache-file /dev/null | awk '{print tolower($2)}')
+selected=$(echo -e $entries|rofi -dmenu --cache-file -i /dev/null | awk '{print tolower($2)}')
 
 case $selected in
     lock)
@@ -12,9 +12,13 @@ case $selected in
     suspend)
         exec systemctl suspend;;
     reboot)
-        exec systemctl reboot;;
+        exec systemctl reboot -i;;
     shutdown)
         exec systemctl poweroff -i;;
     hibernate)
         exec systemctl hibernate;;
+    reload)
+        hyprctl reload;;
+    kill)
+        hyprctl kill;;
 esac

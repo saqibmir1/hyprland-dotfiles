@@ -23,7 +23,6 @@ if ! command -v expac &> /dev/null; then
     esac
 fi
 
-
 action=$(echo -e "Install Program\nRemove Program\nRemove Orphans\nUpdate System (pacman only)\nUpdate System (pacman + yay)\nRemove Recently Installed Packages\nShow Package Info" | fzf -i --height 10)
 
 case $action in
