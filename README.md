@@ -5,6 +5,8 @@ dotfiles for hyprland (arch linux)
 
 ![ScreenShot1](https://saqibmir.me/blog/switching-to-hyprland/hyprland-rice.png)
 ![ScreenShot2](https://saqibmir.me/blog/switching-to-hyprland/hyprland-rice-2.png)
+![ScreenShot2](https://saqibmir.me/blog/switching-to-hyprland/hyprland-rice-3.png)
+
 ## Packages used 
 
 List of packages i use:
@@ -22,6 +24,7 @@ List of packages i use:
 - **Browser** --- firefox 
 - **Notification** --- dunst 
 - **Media Player** --- mpv
+- **Pdf Reader** --- zathura
 
 ## Installation
 
@@ -49,7 +52,5 @@ bash install-hyprland.sh
 | <kbd>MOD SHIFT + Q</kbd>             | Quit Hyprland             |
 
 ## Wallpapers
-Rename your walpaper as *background* and put in *$HOME/.config*.
-You can also use <kbd>setbg</kbd> script to choose wallpapers from rofi and it will be set as new walpaper automatically.
-
+By default, hyprland will use <kbd>$HOME/.config/background</kb> as walpaper. But you can change Wallpapers anytime using the <kbd>setbg</kbd> script which lists all the images located in your <kbd>$HOME/Pictures/wall</kbd> folder.
 

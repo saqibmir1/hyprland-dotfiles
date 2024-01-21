@@ -47,21 +47,18 @@ tooltip {
   border-radius: 10px;
 }
 
+#custom-powermenu,
 #clock,
 #battery,
 #cpu,
 #memory,
 #disk,
 #temperature,
-#backlight,
 #network,
 #pulseaudio,
 #wireplumber,
-#custom-media,
 #tray,
 #mode,
-#idle_inhibitor,
-#scratchpad,
 #window,
 #mpd {
   background: #1e1e2e;
@@ -111,6 +108,8 @@ tooltip {
   border-radius: 0 10px 10px 0;
   margin-right: 10px;
 }
+
+
 
 #battery.charging,
 #battery.plugged {

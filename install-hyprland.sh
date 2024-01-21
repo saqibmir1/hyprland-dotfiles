@@ -67,19 +67,79 @@ if [[ $inst =~ ^[Nn]$ ]]; then
         fi
 
 if [[ $inst =~ ^[Yy]$ ]]; then
-   yay_pkgs="visual-studio-code-bin"
+   yay_pkgs="visual-studio-code-bin
+   cava"
 
-   hypr_pkgs="hyprland arc-gtk-theme waybar cliphist dunst foot rofi grim slurp imv
-   pamixer pipewire pipewire-pulse pipewire-audio wireplumber polkit-kde-agent qt6-wayland
-   qt5-wayland swaybg swaylock swayidle xdg-desktop-portal-hyprland xdg-user-dirs"
+   hypr_pkgs="hyprland
+   arc-gtk-theme
+   waybar
+   cliphist
+   dunst
+   foot
+   rofi
+   grim
+   slurp
+   imv
+   brightnessctl
+   polkit-kde-agent
+   qt6-wayland
+   qt5-wayland
+   xdg-desktop-portal-hyprland
+   xdg-user-dirs
+   pamixer
+   pipewire
+   pipewire-pulse
+   pipewire-audio
+   wireplumber
+   swaybg
+   swaylock
+   swayidle"
 
-   font_pkgs="ttf-font-awesome ttf-jetbrains-mono ttf-jetbrains-mono-nerd"
 
-   app_pkgs="android-file-transfer android-tools bluez bluez-utils fzf git htop imv 
-   man-db mesa mesa-utils neofetch neovim ranger tlp zip unzip zsh zsh-syntax-highlighting
-   zathura zathura-djvu zathura-ps zathura-pdf-poppler"
+   font_pkgs="ttf-font-awesome
+   ttf-jetbrains-mono
+   ttf-jetbrains-mono-nerd"
 
-   app_pkgs2="firefox mpv thunar thunar-archive-plugin thunar-volman gvfs" 
+   app_pkgs="python-pip
+   nvim
+   npm
+   hugo
+   android-file-transfer
+   android-tools
+   bluez
+   bluez-utils
+   fzf
+   git
+   htop
+   imv 
+   man-db
+   mesa
+   mesa-utils
+   neofetch
+   neovim
+   ranger
+   tlp
+   zip
+   unzip
+   zsh
+   zsh-syntax-highlighting
+   zathura
+   zathura-djvu
+   zathura-ps
+   zathura-pdf-poppler
+   expac
+   sc-im
+   tree"
+
+   app_pkgs2="firefox
+   mpv
+   thunar
+   thunar-archive-plugin
+   thunar-volman
+   gvfs
+   tumbler
+   pavucontrol
+   telegram-desktop" 
 
 
     if ! yay -S --noconfirm $yay_pkgs $hypr_pkgs $font_pkgs $app_pkgs $app_pkgs2 2>&1 | tee -a $LOG; then
@@ -100,13 +160,17 @@ fi
 read -n1 -rep "${CAT} Would you like to copy config files? (y,n)" CFG
 if [[ $CFG =~ ^[Yy]$ ]]; then
     printf " Copying config files...\n"
-    cp -r .config/foot ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/shell ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/swaylock ~/.config/ 2>&1 | tee -a $LOG
-    cp .config/background ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/waybar ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/hypr ~/.config/ 2>&1 | tee -a $LOG
-    cp -r .config/rofi ~/.config/ 2>&1 | tee -a $LOG
+ #   cp -r .config/foot ~/.config/ 2>&1 | tee -a $LOG
+ #   cp -r .config/shell ~/.config/ 2>&1 | tee -a $LOG
+  #  cp -r .config/swaylock ~/.config/ 2>&1 | tee -a $LOG
+   
+  #cp .config/background ~/.config/ 2>&1 | tee -a $LOG
+  #  cp -r .config/waybar ~/.config/ 2>&1 | tee -a $LOG
+  #  cp -r .config/hypr ~/.config/ 2>&1 | tee -a $LOG
+   # cp -r .config/rofi ~/.config/ 2>&1 | tee -a $LOG
+  #  cp -r .config/cava ~/.config/ 2>&1 | tee -a $LOG
+
+    cp -r .config/* ~/.config/ 2>&1 | tee -a $LOG
 
     mkdir -p ~/.local/bin  ~/.cache/zsh 2>&1 | tee -a $LOG
     mkdir ~/Git ~/gitPackages ~/Code 2>&1 | tee -a $LOG
@@ -117,9 +181,6 @@ if [[ $CFG =~ ^[Yy]$ ]]; then
 fi
 
 # startup services
-printf " Activating Bluetooth Services...\n"
-sudo systemctl enable --now bluetooth.service
-sleep 2
 printf " Activating tlp Services...\n"
 sudo systemctl enable --now tlp.service
 sleep 2

@@ -6,9 +6,9 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 0,
-    "modules-left": ["hyprland/workspaces", "hyprland/mode", "hyprland/scratchpad", "custom/media"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock"],
+    "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory", "temperature", "keyboard-state", "battery", "battery#bat2", "clock", "custom/powermenu"],
 
       "hyprland/window": {
         "format": "{}"
@@ -80,15 +80,20 @@
         "bat": "BAT2"
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-    //    "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "wifi-menu"
     },
+
+    "custom/powermenu": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "exec powermenu",
+    },
+    
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
