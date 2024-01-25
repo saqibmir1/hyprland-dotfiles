@@ -2,7 +2,7 @@
 
 entries=" Lock\n󰍃 Logout\n Suspend\n Reboot\n Shutdown\n󰒲 Hibernate\n󰟔 Reload\n󰧻 Kill"
 
-selected=$(echo -e $entries|rofi -dmenu --cache-file -i /dev/null | awk '{print tolower($2)}')
+selected=$(echo -e $entries|wofi --dmenu --cache-file -i /dev/null | awk '{print tolower($2)}')
 
 case $selected in
     lock)

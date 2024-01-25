@@ -1,5 +1,3 @@
-# See dunst(5) for all configuration options
-
 [global]
     ### Display ###
 
@@ -300,7 +298,7 @@
 
 [urgency_normal]
     background = "#282a36"
-    foreground = "#bd93f9"
+    foreground = "#57BEF3"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #new_icon = /path/to/icon
@@ -434,4 +432,3 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
-

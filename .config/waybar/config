@@ -8,7 +8,7 @@
     "height": 0,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory", "temperature", "keyboard-state", "battery", "battery#bat2", "clock", "custom/powermenu"],
+    "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "clock", "custom/powermenu"],
 
       "hyprland/window": {
         "format": "{}"
@@ -76,9 +76,7 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
+    
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",

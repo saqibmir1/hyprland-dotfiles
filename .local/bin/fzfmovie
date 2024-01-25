@@ -8,12 +8,12 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
-# Check if rofi is installed, use it if available, otherwise use fzf
-if command_exists rofi; then
-  # Use rofi to select a movie file
-  selected_file=$(find "$MOVIES_DIR" -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | rofi -dmenu -i -p "Select a movie:")
+# Check if wofi is installed, use it if available, otherwise use fzf
+if command_exists wofi; then
+  # Use wofi to select a movie file
+  selected_file=$(find "$MOVIES_DIR" -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | wofi --dmenu -i -p "Select a movie:")
 else
-  # Use fzf if rofi is not available
+  # Use fzf if wofi is not available
   selected_file=$(find "$MOVIES_DIR" -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | fzf)
 fi
 

@@ -8,12 +8,12 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
-# Check if rofi is installed, use it if available, otherwise use fzf
-if command_exists rofi; then
-  # Use rofi to select a music file
-  selected_file=$(find "$MUSIC_DIR" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" \) | rofi -dmenu -i -p "Select a music file:")
+# Check if wofi is installed, use it if available, otherwise use fzf
+if command_exists wofi; then
+  # Use wofi to select a music file
+  selected_file=$(find "$MUSIC_DIR" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" \) | wofi --dmenu -i -p "Select a music file:")
 else
-  # Use fzf if rofi is not available
+  # Use fzf if wofi is not available
   selected_file=$(find "$MUSIC_DIR" -type f \( -name "*.mp3" -o -name "*.flac" -o -name "*.wav" \) | fzf)
 fi
 
