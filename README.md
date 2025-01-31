@@ -52,5 +52,5 @@ bash install-hyprland.sh
 | <kbd>MOD SHIFT + Q</kbd>             | Quit Hyprland             |
 
 ## Wallpapers
-By default, hyprland will use <kbd>$HOME/.config/background</kb> as walpaper. But you can change Wallpapers anytime using the <kbd>setbg</kbd> script which lists all the images located in your <kbd>$HOME/Pictures/wall</kbd> folder.
+By default, hyprland will use <kbd>$HOME/.config/background</kbd> as walpaper. But you can change Wallpapers anytime using the <kbd>setbg</kbd> script which lists all the images located in your <kbd>$HOME/Pictures/wall</kbd> folder.
 
