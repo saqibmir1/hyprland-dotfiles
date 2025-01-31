@@ -2,10 +2,9 @@
 dotfiles for hyprland (arch linux)
 
 ## Screenshots
-
-![ScreenShot1](https://saqibmir.me/blog/switching-to-hyprland/hyprland-rice.png)
-![ScreenShot2](https://saqibmir.me/blog/switching-to-hyprland/hyprland-rice-2.png)
-![ScreenShot2](https://saqibmir.me/blog/switching-to-hyprland/hyprland-rice-3.png)
+![Screenshot0](https://saqibmir1.github.io/posts/auto-arch-and-hyprland-script-update/sex_hubc910b71f12dd6f5857d12f4b1db5abd_1897012_1320x0_resize_box_3.png)
+![Screenshot1](https://saqibmir1.github.io/posts/switching-to-hyprland/hyprland-rice_hucc353bf7067527ea0ed8829a4628a1ab_870932_1320x0_resize_box_3.png)
+![Screenshot2](https://saqibmir1.github.io/posts/switching-to-hyprland/hyprland-rice-2_hu2aaedc44b636d9a6299ab6d743310f0d_677088_1320x0_resize_box_3.png)
 
 ## Packages used 
 
